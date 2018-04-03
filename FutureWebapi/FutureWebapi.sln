@@ -1,0 +1,25 @@
+﻿
+Microsoft Visual Studio Solution File, Format Version 12.00
+# Visual Studio 15
+VisualStudioVersion = 15.0.27428.2015
+MinimumVisualStudioVersion = 10.0.40219.1
+Project("{9092AA53-FB77-4645-B42D-1CCCA6BD08BD}") = "FutureWebapi", "FutureWebapi\FutureWebapi.njsproj", "{766DB579-3DDF-4DAB-90A2-ED3CA4999F47}"
+EndProject
+Global
+	GlobalSection(SolutionConfigurationPlatforms) = preSolution
+		Debug|Any CPU = Debug|Any CPU
+		Release|Any CPU = Release|Any CPU
+	EndGlobalSection
+	GlobalSection(ProjectConfigurationPlatforms) = postSolution
+		{766DB579-3DDF-4DAB-90A2-ED3CA4999F47}.Debug|Any CPU.ActiveCfg = Debug|Any CPU
+		{766DB579-3DDF-4DAB-90A2-ED3CA4999F47}.Debug|Any CPU.Build.0 = Debug|Any CPU
+		{766DB579-3DDF-4DAB-90A2-ED3CA4999F47}.Release|Any CPU.ActiveCfg = Release|Any CPU
+		{766DB579-3DDF-4DAB-90A2-ED3CA4999F47}.Release|Any CPU.Build.0 = Release|Any CPU
+	EndGlobalSection
+	GlobalSection(SolutionProperties) = preSolution
+		HideSolutionNode = FALSE
+	EndGlobalSection
+	GlobalSection(ExtensibilityGlobals) = postSolution
+		SolutionGuid = {BFCC8FFE-62BF-4906-B570-7E76542610EE}
+	EndGlobalSection
+EndGlobal
