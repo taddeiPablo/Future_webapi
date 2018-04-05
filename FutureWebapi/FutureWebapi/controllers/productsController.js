@@ -1,6 +1,6 @@
 ﻿'use strict';
 
-var layerdata = require('../models/data');
+var data = require('../models/data');
 
 /**
  * CALLBACK ROUTE PRODUCTS
@@ -9,8 +9,14 @@ var layerdata = require('../models/data');
  * @param {any} next
  */
 exports.getProducts = function (req, res, next) {
-    var product = req.query.var;
-    layerdata.get_data_site(product, function (body) {
+    var params = {
+        product: req.query.var,
+        price_min: req.query.var1,
+        price_max: req.query.var2,
+        raiting: req.query.var3
+    };
+
+    data.get_data_site(params, function (body) {
         res.json(body);
     });
 };
