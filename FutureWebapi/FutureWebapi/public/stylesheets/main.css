@@ -6,3 +6,11 @@
 a {
     color: #00B7FF;
 }
+
+table {
+    border-collapse: collapse;
+}
+
+td, th /* Asigna un borde a las etiquetas td Y th */ {
+    border: 1px solid black;
+}

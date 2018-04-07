@@ -21,7 +21,7 @@ exports.get_data_site = function (params, callback) {
                     list_items_aux.push(items[i]);
                 }
             }
-            results = selectionSort(list_items_aux);
+            results = selectionSort(list_items_aux, params.raiting);
             callback(results);
         });
     } catch (e) {
@@ -31,24 +31,39 @@ exports.get_data_site = function (params, callback) {
 
 // funcion de ordenamiento por el siguiente criterio 
 // menor precio + mayor rating y falta agregar los totales
-var selectionSort = function (list) {
+var selectionSort = function (list, raiting) {
     var m, j = 0;
     var rating_average_m, rating_average_j = 0;
     var totals_m, totals_j = 0;
-    for (var i = -1; ++i < list.length;) {
-        for (var m = j = i; ++j < list.length;) {
-            if (list[m]["reviews"]["rating_average"] != undefined)
-                rating_average_m = parseFloat(list[m]["reviews"]["rating_average"]);
-            if (list[j]["reviews"]["rating_average"] != undefined)
-                rating_average_j = parseFloat(list[j]["reviews"]["rating_average"]);
-            if (parseInt(list[m]["price"]) > parseInt(list[j]["price"]) &&
-                rating_average_m > rating_average_j) {
-                m = j;
+    if (raiting) {
+        // aqui ordeno por raitings
+        for (var i = -1; ++i < list.length;) {
+            for (var m = j = i; ++j < list.length;) {
+                if (list[m]["reviews"]["rating_average"] != undefined)
+                    rating_average_m = parseFloat(list[m]["reviews"]["rating_average"]);
+                if (list[j]["reviews"]["rating_average"] != undefined)
+                    rating_average_j = parseFloat(list[j]["reviews"]["rating_average"]);
+                if (parseInt(list[m]["price"]) > parseInt(list[j]["price"]) &&
+                    rating_average_m > rating_average_j) {
+                    m = j;
+                }
             }
+            var item = list[m];
+            list[m] = list[i];
+            list[i] = item;
         }
-        var item = list[m];
-        list[m] = list[i];
-        list[i] = item;
+    } else {
+        // aqui ordeno sin tener en cuenta los raitings
+        for (var i = -1; ++i < list.length;) {
+            for (var m = j = i; ++j < list.length;) {
+                if (parseInt(list[m]["price"]) > parseInt(list[j]["price"])) {
+                    m = j;
+                }
+            }
+            var item = list[m];
+            list[m] = list[i];
+            list[i] = item;
+        }
     }
     return list;
 };
